@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Индексация ссылок</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Индексация ссылок</h1>
+    <form action="{% url 'indexing_links' %}" method="post">
+        {% csrf_token %}
+        <label>Введите список ссылок столбцом:</label>
+        <textarea name="links" placeholder="https://example.com" rows="10" cols="33" autofocus required></textarea>
+        <button type="submit">Индексировать ссылки</button>
+    </form>
+    {% if output %}
+        <div class="output">
+            <h2>Результат выполнения команды:</h2>
+            <pre>{{ output }}</pre>
+        </div>
+    {% endif %}
+</body>
+</html>
