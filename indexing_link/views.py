@@ -9,7 +9,7 @@ def indexing_links(request):
         with open('google-indexing-api-bulk-master/urls.txt', 'w', newline='\n') as f:
             for link in links:
                 f.write(link + '\n')
-        process = subprocess.Popen(['node', 'index.js'], stdout=subprocess.PIPE, cwd='google-indexing-api-bulk-master/')
+        process = subprocess.Popen(['C:/Program Files/nodejs/node.exe', 'index.js'], stdout=subprocess.PIPE, cwd='google-indexing-api-bulk-master/')
         output, _ = process.communicate()
         return render(request, 'index.html', {'output': output.decode()})
     else:
