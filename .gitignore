@@ -1,1 +1,3 @@
 google-indexing-api-bulk-master/
+secret_settings.py
+db.sqlite3
